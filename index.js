@@ -18,4 +18,4 @@ for(let i = 1; i <=10; i++){
     let mensaje = `Turno n°${i} Nombre: ${nombreyapellido}`;
     alert(mensaje);
 }
-alert("¡No hay mas turnos disponibles, regrese mañana!");
+alert("¡No hay mas turnos disponibles, vuelva a intentarlo mañana!");
