@@ -11,27 +11,37 @@ function ingresarProductos() {
     const agua = 240;
     const pan = 320;
     const caramelos = 30;
-    precioProductos = prompt(`Ingrese el nombre del producto que desea agregar` + (contador + 1) + `:`);
-
+    let precioProductos = Number(
+        prompt(
+            `Ingrese el nombre del producto que desea agregar ${
+                contador + 1
+            } : \n\n1- Fideos $${fideos} \n2- Agua $${agua} \n3- Pan $${pan} \n4- Caramelos $${caramelos}`
+        )
+    );
 
     while (precioProductos !=0) {
         gastoTotal = calcularTotal(precioProductos);
         contador++;
-        precioProductos = prompt(`Ingrese el nombre del producto` + (contador + 1) + `:`);
+        precioProductos = Number( 
+            prompt(
+                `Ingrese el precio del producto que desea agregar ${
+                    contador + 1
+                } : \n\n1- Fideos $${fideos} \n2- Agua $${agua} \n3- Pan $${pan} \n4- Caramelos $${caramelos}`
+            )
+        );
     }
 
-    if (precioProductos = 0) {
+    if ((precioProductos = 0)) {
         alert(`Ha terminado de agregar productos`)
         
     }
 
 }
-/* Hasta aca todo bien, cuando pongo "0" se finaliza, pero suma los productos literalmente (El total del carrito es de $0fideosagua) */
+
 function calcularTotal(precioProductos) {
     return gastoTotal + precioProductos;
 }
 
 function mostrarTotal() {
-    alert(`El total del carrito es de $` + gastoTotal);
-    alert(`Cantidad de productos: ` +  contador);
+    alert(`Cantidad de productos: ${contador} \n\nEl total es de $${gastoTotal}`);
 }
