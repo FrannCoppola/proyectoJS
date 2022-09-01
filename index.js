@@ -1,21 +1,37 @@
-/* let numeroUno = 10;
-let numeroDos = 23;
-let numeroTres = 5;
+let gastoTotal = 0;
+let contador = 0;
 
-let suma = numeroUno + numeroTres;
+alert(`Sume los productos que desea agregar al carrito// coloque 0 para finalizar.`);
 
-console.log("resultado", suma);
- */
+ingresarProductos();
+mostrarTotal();
 
-/* let saludo = "Buenos dias ";
-let nombre = prompt("ingrese su nombre");
-let bienvenida = (saludo + nombre);
+function ingresarProductos() {
+    const fideos = 100;
+    const agua = 240;
+    const pan = 320;
+    const caramelos = 30;
+    precioProductos = prompt(`Ingrese el nombre del producto que desea agregar` + (contador + 1) + `:`);
 
-alert (bienvenida); */
 
-for(let i = 1; i <=10; i++){
-    let nombreyapellido = prompt ("Ingrese su nombre y apellido, porfavor");
-    let mensaje = `Turno n°${i} Nombre: ${nombreyapellido}`;
-    alert(mensaje);
+    while (precioProductos !=0) {
+        gastoTotal = calcularTotal(precioProductos);
+        contador++;
+        precioProductos = prompt(`Ingrese el nombre del producto` + (contador + 1) + `:`);
+    }
+
+    if (precioProductos = 0) {
+        alert(`Ha terminado de agregar productos`)
+        
+    }
+
 }
-alert("¡No hay mas turnos disponibles, vuelva a intentarlo mañana!");
+/* Hasta aca todo bien, cuando pongo "0" se finaliza, pero suma los productos literalmente (El total del carrito es de $0fideosagua) */
+function calcularTotal(precioProductos) {
+    return gastoTotal + precioProductos;
+}
+
+function mostrarTotal() {
+    alert(`El total del carrito es de $` + gastoTotal);
+    alert(`Cantidad de productos: ` +  contador);
+}
