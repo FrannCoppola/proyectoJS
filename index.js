@@ -1,49 +1,58 @@
-let gastoTotal = 0;
-let contador = 0;
+let servicios = [];
+let repetir = true;
 
-alert(
-	`Sume los productos que desea agregar al carrito// coloque 0 para finalizar.`
-);
+// clase Producto
+class Servicio {
+	constructor(nombre, costo, mes) {
+		this.nombre = nombre;
+		this.costo = costo;
+		this.mes = mes;
+	}
+}
 
-ingresarProductos();
-mostrarTotal();
+function crearServicio() {
+	let nuevoServicio = [];
+	let nombre = '';
+	let costo = 0;
+	let mes = 0;
 
-function ingresarProductos() {
-	const fideos = 100;
-	const agua = 240;
-	const pan = 320;
-	const caramelos = 30;
-	let precioProductos = Number(
-		prompt(
-			`Ingrese el nombre del producto que desea agregar ${
-				contador + 1
-			} : \n\n1- Fideos $${fideos} \n2- Agua $${agua} \n3- Pan $${pan} \n4- Caramelos $${caramelos}`
-		)
+	nombre = prompt('Introduzca el nombre del servicio');
+	costo = Number(prompt('Introduzca el costo del servicio'));
+	mes = Number(prompt('Introduzca el mes de facturación'));
+
+	nuevoServicio = new Servicio(nombre, costo, mes);
+
+	return nuevoServicio;
+}
+
+function agregarServicios() {
+	return servicios.push(crearServicio());
+}
+
+while (repetir) {
+	let consulta;
+	alert(
+		'Introduzca los datos del servicio (agua,gas,luz,etc) que desea agregar.'
 	);
+	agregarServicios();
 
-	while (precioProductos != 0) {
-		gastoTotal = calcularTotal(precioProductos);
-		contador++;
-		precioProductos = Number(
+	do {
+		consulta = Number(
 			prompt(
-				`Ingrese el precio del producto que desea agregar ${
-					contador + 1
-				} : \n\n1- Fideos $${fideos} \n2- Agua $${agua} \n3- Pan $${pan} \n4- Caramelos $${caramelos}`
+				'¿Desea introducir los datos de otro servicio? Seleccione una opción(1 o 2) \n\n1- Si \n2- No'
 			)
 		);
-	}
-
-	if ((precioProductos = 0)) {
-		alert(`Ha terminado de agregar productos`);
-	}
+		if (consulta == 1) {
+			alert('Ha seleccionado ingresar un nuevo servicio');
+		} else if (consulta == 2) {
+			alert('Ha seleccionado no ingresar más servicios');
+			repetir = false;
+		} else {
+			alert(
+				':( Ha introducido una opción incorrecta, por favor selecciona la opción(1 o 2)'
+			);
+		}
+	} while (consulta < 1 || consulta > 2);
 }
 
-function calcularTotal(precioProductos) {
-	return gastoTotal + precioProductos;
-}
-
-function mostrarTotal() {
-	alert(
-		`Cantidad de productos: ${contador} \n\nEl total es de $${gastoTotal}`
-	);
-}
+console.log(servicios);
