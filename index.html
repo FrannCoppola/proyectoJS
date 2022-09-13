@@ -9,8 +9,50 @@
 	<body>
 		<h1>AUTOSERVICIO "Lo de Juan"</h1>
 		<h2>El mejor surtido y calidad, con envío gratis a domicilio</h2>
-		<p id="mostrar"></p>
-		<p id="mostrar-total"></p>
+		<!-- <p id="mostrar"></p>
+		<p id="mostrar-total"></p> -->
+		<h3>Lista de compra</h3>
+		<div class="container py-2">
+			<p class="lead">
+				Ingrese el nombre y la cantidad deseada de cada producto. Cuando
+				finalize, un asesor se va a comunicar con usted para acompañarlo en
+				el proceso de pag0
+			</p>
+			<form action="">
+				<input
+					id="producto1"
+					type="text"
+					placeholder="Ingresar producto"
+					class="form-control my-2"
+				/>
+				<input
+					id="cantidad1"
+					type="number"
+					placeholder="Ingresar cantidad"
+					class="form-control my-2"
+				/>
+				<button
+					id="boton"
+					class="btn btn-success"
+					type="reset"
+					onclick="capturar()"
+				>
+					Agregar
+				</button>
+			</form>
+		</div>
+
+		<div class="container">
+			<table class="table" id="tabla">
+				<thead class="thead-inverse">
+					<tr>
+						<th>Producto</th>
+						<th>Cantidad</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
 		<script src="./index.js"></script>
 	</body>
 </html>
