@@ -1,33 +1,36 @@
-let baseDatos = [];
-let nuevoProducto;
-const tbodyTabla = document.querySelector('.table tbody');
+let input1 = document.getElementById('nombre');
+let input2 = document.getElementById('cliente');
+let miFormulario = document.getElementById('formulario');
+let boton = document.getElementById('boton');
+let mostrarHijosFormulario = document.getElementById(
+	'mostrar-hijos-formulario'
+);
+let cantidadElementosFormulario = document.getElementById(
+	'cantidad-elementos-formulario'
+);
 
-function capturar() {
-	let productoInput = document.getElementById('producto1').value;
-	console.log(productoInput);
-	let cantidadInput = document.getElementById('cantidad1').value;
-	console.log(cantidadInput);
-
-	nuevoProducto = new Producto(productoInput, cantidadInput);
-	console.log(nuevoProducto);
-	agregar();
+function validarFormulario(e) {
+	e.preventDefault();
+	console.log('Enviando mensaje desde la función validarFormulario()');
 }
 
-class Producto {
-	constructor(producto, cantidad) {
-		this.producto = producto;
-		this.cantidad = cantidad;
+function validarFormulario2(e) {
+	//Cancelamos el comportamiento del evento submit
+	e.preventDefault();
+	console.log(
+		'\nEnviando mensaje desde la función validarFormulario2() esta es otra función'
+	);
+
+	//Obtenemos el elemento desde el cual se disparó el evento
+	let formulario = e.target;
+	console.log(formulario);
+
+	const coleccionHijos = miFormulario.children;
+	let elementosFormulario = '';
+	for (let i = 0; i < miFormulario.children.length; i++) {
+		elementosFormulario += coleccionHijos[i].tagName + '<br>';
 	}
-}
 
-function agregar() {
-	console.log('Datos agregados');
-	baseDatos.push(nuevoProducto);
-	console.log(baseDatos);
-
-	tbodyTabla.innerHTML = '';
-
-	baseDatos.forEach(function (registro) {
-		tbodyTabla.innerHTML += `<tr><td>${registro.producto}</td><td>${registro.cantidad}</td></tr>`;
-	});
+	mostrarHijosFormulario.innerHTML = elementosFormulario;
+	cantidadElementosFormulario.innerHTML = `Cantidad de elementos del formulario : ${coleccionHijos.length}`;
 }
