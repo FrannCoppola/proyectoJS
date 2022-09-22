@@ -4,44 +4,214 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<!-- 		<script src="https://code.jquery.com/jquery-3.5.1.min.js%22%3E"></script> -->
+		<!-- BOOTSTRAP -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+			integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+			crossorigin="anonymous"
+		></script>
+		<!-- CSS -->
+		<link rel="stylesheet" href="styles.css" />
+		<title>AUTOSERVICIO</title>
 	</head>
 	<body>
-		<h1>AUTOSERVICIO "Lo de Juan"</h1>
-		<h2>El mejor surtido y calidad, con envío gratis a domicilio</h2>
-
-		<label for="nombre">Nombre : </label>
-		<input id="nombre" type="text" />
-		<br /><br />
-		<label for="fliente">Numero de cliente</label>
-		<input id="cliente" type="number" />
-
-		<form id="formulario">
-			<br /><br />
-			<label for="text">Celular</label>
-			<input type="number" />
-			<br /><br />
-			<label for="text">Asunto</label>
-			<input type="text" />
-			<br /><br />
-		</form>
-
-		<form>
-			<div class="form-group col-md-8">
-				<input
-					id="txtContrasenia"
-					type="text"
-					class="form-control rounded-left"
-					placeholder="Introduzca su Contraseña"
-				/>
+		<header id="navegacion">
+			<ul>
+				<li class="listaNavegacion"><a href="">INICIO</a></li>
+				<li class="listaNavegacion"><a href="#comprar">COMPRAR</a></li>
+				<li class="listaNavegacion">
+					<a href="#nosotros">SOBRE NOSOTROS</a>
+				</li>
+				<li class="listaNavegacion"><a href="#contacto">CONTACTO</a></li>
+			</ul>
+		</header>
+		<div id="inicio">
+			<h1>AUTOSERVICIO "Lo de Juan"</h1>
+			<img
+				src="./imagenes/morgan-vander-hart-QICueXvfH3U-unsplash.jpg"
+				alt="mercado"
+			/>
+		</div>
+		<div>
+			<h2 class="titulos">
+				El mejor surtido y calidad, con envío gratis a domicilio
+			</h2>
+		</div>
+		<div id="comprar" class="container page-content">
+			<section class="grid gridContainer" id="grid">
+				<div class="col1 row1 cards">
+					<div class="cardsCard">
+						<img
+							src="./imagenes/agua.png"
+							class="cardImg1 card__image"
+							alt=""
+						/>
+						<div class="cardTxt">
+							<h4 class="card__title">AGUA</h4>
+							<p class="card__price">$200</p>
+							<button class="card__btn add-to-cart" data-id="6">
+								AGREGAR AL CARRITO
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col2 row1 cards">
+					<div class="cardsCard grid" id="grid">
+						<div class="cardImg1"></div>
+						<div class="card__info">
+							<h2 class="card__title"><-Solamente funciona el AGUA</h2>
+							<p class="card__price">null</p>
+							<button class="card__btn add-to-cart" data-id="6">
+								no usar
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col3 row1 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>HARINA</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="col1 row2 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>PAPEL HIGIENICO</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="col2 row2 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>GALLETITAS</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="col3 row2 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>JABON</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="col1 row3 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>DESODORANTE</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="col2 row3 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>ALFAJOR</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="col3 row3 cards">
+					<div class="cardsCard">
+						<div class="cardImg1"></div>
+						<div class="cardTxt">
+							<h2>SHAMPOO</h2>
+							<p>$</p>
+						</div>
+					</div>
+				</div>
+				<div class="row14 cards">
+					<div class="cardsCard2">
+						<div class="cardTxt">
+							<h2>CARRITO</h2>
+							<ul>
+								<li id="submenu">
+									<p class="header__cart-btn" id="toggle-cart-btn"></p>
+									<div
+										id="shopping-cart"
+										class="shopping-cart-container"
+									>
+										<table id="cart-content">
+											<thead>
+												<tr>
+													<th>Imagen</th>
+													<th>Nombre</th>
+													<th>Precio</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody></tbody>
+										</table>
+										<p class="total-container" id="total-price"></p>
+										<a href="#" id="checkout-btn" class="cart__btn"
+											>COMPRAR</a
+										>
+										<a href="#" id="clear-cart" class="cart__btn"
+											>VACIAR CARRITO</a
+										>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div id="nosotros">
+			<div class="texto">
+				<h2 class="titulos">SOBRE NOSOTROS</h2>
+				<p>
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+					Suscipit nulla tempore odio enim consectetur, delectus animi
+					placeat repudiandae eveniet fugit ipsam dicta in officiis cumque!
+					Sapiente, natus. Vero quia saepe dicta? Perferendis voluptas
+					explicabo alias incidunt facilis dicta perspiciatis tempora? Ex
+					dicta quis nisi culpa expedita voluptatum delectus? Provident,
+					voluptatibus!
+				</p>
 			</div>
-			<br />
-			<button type="submit" class="btn btn-info submit" id="enviar">
-				Enviar
-			</button>
-		</form>
-		<br /><br />
+			<div id="slider">
+				<figure>
+					<img src="./imagenes/pexels-anna-shvets-3962292.jpg" alt="" />
+					<img
+						src="./imagenes/pexels-anna-tarazevich-5910700.jpg"
+						alt=""
+					/>
+					<img src="./imagenes/pexels-gustavo-fring-3985062.jpg" alt="" />
+					<img src="./imagenes/pexels-jack-sparrow-4199115.jpg" alt="" />
+					<img src="./imagenes/pexels-mark-stebnicki-2252482.jpg" alt="" />
+				</figure>
+			</div>
+		</div>
+		<div id="contacto">
+			<h3 class="titulos">CONTACTANOS</h3>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+				temporibus deleniti maxime pariatur quam beatae totam consequuntur,
+				fuga accusantium expedita nihil dolore. Consectetur, officia. Quas a
+				quod iure excepturi minima.
+			</p>
+		</div>
 
-		<script src="./index.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js%22%3E"></script> -->
+
+		<script src="index.js"></script>
+		<!-- SCRIPT BOOTSTRAP -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>
