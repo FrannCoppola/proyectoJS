@@ -133,14 +133,20 @@
 
 	function checkout() {
 		const cartProducts = cartContent.querySelector('tbody').innerHTML;
-		if (
-			cartProducts !== '' &&
-			confirm('¿Estás seguro de que querés comprar?')
-		) {
-			clearCart();
-		} else {
-			return;
-		}
+		Swal.fire({
+			title: '¿Estás seguro?',
+			text: 'Al presionar comprar, serás redireccionado a la pestaña de pago',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: '¡Sí, comprar!',
+		}).then((result) => {
+			if (result.isConfirmed) {
+				Swal.fire('¡Listo!', 'Ha realizado la compra', 'success');
+			}
+			{
+				clearCart();
+			}
+		});
 	}
 
 	document.addEventListener('DOMContentLoaded', function (e) {
